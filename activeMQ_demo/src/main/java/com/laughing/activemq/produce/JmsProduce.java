@@ -14,7 +14,8 @@ import java.util.Map;
  */
 public class JmsProduce {
 
-    public static final String ACTIVEMQ_URL = "tcp://127.0.0.1:61616";
+    // public static final String ACTIVEMQ_URL = "tcp://127.0.0.1:61616";
+    public static final String ACTIVEMQ_URL = "nio://127.0.0.1:61618";
     public static final String QUEUE_NAME = "laughing-queue";
 
     public static void main(String[] args) throws JMSException {
