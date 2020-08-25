@@ -1,7 +1,6 @@
-package com.laughing.activemq.consumer;
+package com.laughing.activetopic.consumer;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.camel.component.test.TestComponent;
 
 import javax.jms.*;
 import java.io.IOException;
@@ -10,11 +9,11 @@ import java.io.IOException;
  * @author Fu zihao
  * @version 1.0
  * @Description:
- * @date 20202020/8/21 17:42
+ * @date 20202020/8/24 10:03
  */
-public class JmsConsumer {
+public class JmsTopicConsumer {
     public static final String ACTIVEMQ_URL = "tcp://127.0.0.1:61616";
-    public static final String QUEUE_NAME = "laughing-queue";
+    public static final String TOPIC_NAME = "laughing-topic";
 
     public static void main(String[] args) throws JMSException, IOException {
 
@@ -29,20 +28,10 @@ public class JmsConsumer {
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         // 4、创建目的地 队列
         // Destination destination = session.createQueue(ACTIVEMQ_URL);
-        Queue queue = session.createQueue(QUEUE_NAME);
+        Topic topic = session.createTopic(TOPIC_NAME);
         // 5、消费者
-        // receive 方法
-        MessageConsumer messageConsumer = session.createConsumer(queue);
-/*        while (true) {
-            TextMessage textMessage = (TextMessage) messageConsumer.receive(4000L);
-            System.out.println("接收MQ:");
-            if (null != textMessage) {
-                System.out.println(textMessage.getText());
-            } else {
-                break;
-            }
-        }*/
-        // 消费者监听 方法
+
+        MessageConsumer messageConsumer = session.createConsumer(topic);
 
         messageConsumer.setMessageListener(new MessageListener() {
             public void onMessage(Message message) {

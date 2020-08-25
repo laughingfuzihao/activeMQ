@@ -1,7 +1,6 @@
 package com.laughing.activemq.consumer;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.camel.component.test.TestComponent;
 
 import javax.jms.*;
 import java.io.IOException;
@@ -9,10 +8,10 @@ import java.io.IOException;
 /**
  * @author Fu zihao
  * @version 1.0
- * @Description:
+ * @Description: 事务
  * @date 20202020/8/21 17:42
  */
-public class JmsConsumer {
+public class JmsConsumer3 {
     public static final String ACTIVEMQ_URL = "tcp://127.0.0.1:61616";
     public static final String QUEUE_NAME = "laughing-queue";
 

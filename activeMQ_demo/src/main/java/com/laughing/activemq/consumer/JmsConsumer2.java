@@ -1,7 +1,6 @@
 package com.laughing.activemq.consumer;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.camel.component.test.TestComponent;
 
 import javax.jms.*;
 import java.io.IOException;
@@ -10,9 +9,9 @@ import java.io.IOException;
  * @author Fu zihao
  * @version 1.0
  * @Description:
- * @date 20202020/8/21 17:42
+ * @date 20202020/8/24 9:32
  */
-public class JmsConsumer {
+public class JmsConsumer2 {
     public static final String ACTIVEMQ_URL = "tcp://127.0.0.1:61616";
     public static final String QUEUE_NAME = "laughing-queue";
 
@@ -49,7 +48,7 @@ public class JmsConsumer {
                 if (message != null && message instanceof TextMessage) {
                     TextMessage textMessage = (TextMessage) message;
                     try {
-                        System.out.println("消费者接收消息--"+textMessage.getText());
+                        System.out.println("消费者接收消息--" + textMessage.getText());
                     } catch (JMSException e) {
                         e.printStackTrace();
                     }
